@@ -11,9 +11,16 @@
         <meta charset="UTF-8">
         <title>Mustang v2 Lite</title>
         <link rel="stylesheet" href="index.css">
-        <script src="mustang-v2-lite.js"></script>
+        
     </head>
     <body onload="initApplication()">
+        <!--Make sure the form has the autocomplete function switched off:-->
+    <form autocomplete="off" action="/action_page.php">
+        <div class="autocomplete" style="width:300px;">
+        <input id="myInput" type="text" name="myCountry" placeholder="Country">
+        </div>
+        <input type="submit">
+    </form>
         <h1>Mustang v2.2 Lite</h1> 
             <table>
             <tr>
@@ -43,7 +50,7 @@
             <tr>
                 <td>Zip</td>
                 <td>
-                    <input id="zipID" type="text" value="" size="20" onfocus="zipFocusFunction()" onblur="zipBlurFunction()">
+                    <input id="zipID" type="text" value="" size="20" onfocus="getPlace()" onblur="getPlace()">
                 </td>
             </tr>
             <tr>
@@ -64,6 +71,6 @@
         Contacts:<pre id="contactsID"></pre>
 
 
-        
+    <script src="mustang-v2-lite.js"></script>   
     </body>
 </html>
