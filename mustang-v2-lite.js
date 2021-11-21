@@ -86,6 +86,7 @@ function keyPressed() {
     // This type of function should be useful in search as it implements keyPressed.
 }
 
+
 function getPlace() {
     var zip = document.getElementById("zipID").value
     console.log("zip:"+zip);
