@@ -53,6 +53,7 @@ function add() {
     contactArray.push(newContact);
     currentContactIndex = currentContactIndex + 1;
     viewCurrentContact();
+    document.getElementById("contactsID").innerHTML = JSON.stringify(contactArray,null,2);
 
     // Todo: Implement add functionality by inserting new element into array.
 }
@@ -66,6 +67,7 @@ function remove() {
         }
         console.log(contactArray)
         viewCurrentContact();
+        document.getElementById("contactsID").innerHTML = JSON.stringify(contactArray,null,2);
     } else {
         console.log("YOU NEED AT LEAST ONE CONTACT")
     }
@@ -118,8 +120,11 @@ function loadIndex() {
     indexRequest.open('GET', 'https://mustangversion1.azurewebsites.net/index.json');
     indexRequest.onload = function() {
         console.log("Index JSON:" + indexRequest.responseText);
-        document.getElementById("indexID").innerHTML = indexRequest.responseText;
+      //  document.getElementById("indexID").innerHTML = indexRequest.responseText;
         contactIndex = JSON.parse(indexRequest.responseText);
+        var tempS = JSON.stringify(contactIndex)
+        document.getElementById("indexID").innerHTML = JSON.stringify(contactIndex,null,2);
+        console.log(JSON.stringify(contactIndex,null,2))
         for (i=0; i<contactIndex.length; i++) {
             contactURLArray.push(contactIndex[i].ContactURL);
         }
@@ -153,7 +158,7 @@ function loadNextContact(URL) {
         console.log("Contact: " + contact.firstName);
         contactArray.push(contact);
 
-        document.getElementById("contactsID").innerHTML = JSON.stringify(contactArray);
+        document.getElementById("contactsID").innerHTML = JSON.stringify(contactArray,null,2);
 
         document.getElementById("statusID").innerHTML = "Status: Loading " + contact.firstName + " " + contact.lastName;
 
